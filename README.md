@@ -1,3 +1,7 @@
+
+# Setup and run run the project locally
+## install the packages inside requirement.txt
+`pip install -r requirements.txt`
 ## Run virtual env
 `virtualenv -p python3.8 .`
 ## Install Django
