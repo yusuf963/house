@@ -34,6 +34,9 @@ work process
 ## Make sure:
 1. the html file is in the templates folder
 2. all paths are correctly pointing the  the right folder/file
-run the command below to check to collect static
+3. run the command below to check to collect static
 `python manage.py collectstatic`
  a. this will collect all the static files in the static folder in the root directory
+
+4. for src tag you use {% static 'css/style.css' %} instead of 'asset/css/style.css'
+5. for href tag you use {% url 'index' %} instead of href='/index.html'
