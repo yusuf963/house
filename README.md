@@ -16,3 +16,24 @@
 `pip uninstall -y -r <(pip freeze)`
 ## collect static
 `python manage.py collectstatic`
+
+
+
+
+
+
+work process
+## work on static/html template:
+1. Create a static folder in the project directory, and register the path in settings.py 
+2. create a templates folder in the root directory
+3. add the html file to the template folder
+4. register the template folder in the settings.py template section 
+5. break your html file into multiple html files/ footer/ nav/ sections
+6. mark the html file always with {% load static %}, and the sub component with {% include 'filename.html' %} 
+7. change the path of the static files in the html file like {% static 'css/style.css' %} instead of 'asset/css/style.css'
+## Make sure:
+1. the html file is in the templates folder
+2. all paths are correctly pointing the  the right folder/file
+run the command below to check to collect static
+`python manage.py collectstatic`
+ a. this will collect all the static files in the static folder in the root directory
