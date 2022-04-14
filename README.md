@@ -12,3 +12,7 @@
 `django-admin startapp marketplace`
 ## create a superuser
 `python manage.py createsuperuser` 
+## uninall all the unwanted python packages 
+`pip uninstall -y -r <(pip freeze)`
+## collect static
+`python manage.py collectstatic`
