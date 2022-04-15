@@ -40,3 +40,26 @@ work process
 
 4. for src tag you use {% static 'css/style.css' %} instead of 'asset/css/style.css'
 5. for href tag you use {% url 'index' %} instead of href='/index.html'
+
+## Postgresql
+if you are in mac
+`brew install postgresql`
+if you are in windows
+`https://www.postgresql.org/download/`
+install DBeaver
+
+install postgresf driver
+https://jdbc.postgresql.org/download.html
+POstgress command line client
+https://www.postgresql.org/download/linux/ubuntu/
+`$ brew services start postgresql # or "brew services run postgresql" to have it not restart at boot time`
+`psql postgres`
+`brew search postgres`
+`\l`
+## you might cross role dons't excit, run the following to create a user
+`/opt/homebrew/bin/createuser -s postgres` form M1
+
+`/usr/local/opt/postgres/bin/createuser -s postgres`
+`/usr/local/opt/postgresql/bin/createuser -s postgres`
+`/usr/local/opt/postgresql@11/bin/createuser -s postgres`
+
