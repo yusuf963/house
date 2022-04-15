@@ -132,6 +132,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+photos/2022/04/15
 
 # Spyder project settings
 .spyderproject

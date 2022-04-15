@@ -99,3 +99,13 @@ https://www.postgresql.org/download/linux/ubuntu/
     `python manage.py sqlmigrate listings 0001`
 4. to add the new schema/table/models  to the database run the command
 `python manage.py migrate`
+
+
+## •••••••••• create Superuser •••••••••••••
+1. create a superuser
+2. run the command below to create a superuser
+`python manage.py createsuperuser`
+3. you will be asked for the username, email, and password
+4. enter the username, email, and password
+5. you will be asked to confirm the password
+6. enter the password again
