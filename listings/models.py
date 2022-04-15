@@ -1,7 +1,7 @@
 from django.db import models
 from datetime import datetime
 from realtors.models import Realtor
-print(dir(models.Model))
+
 class Listing(models.Model):
     id = models.AutoField(primary_key=True)
     realtor = models.ForeignKey(Realtor, on_delete=models.DO_NOTHING)

@@ -64,10 +64,11 @@ https://www.postgresql.org/download/linux/ubuntu/
 `/usr/local/opt/postgresql@11/bin/createuser -s postgres`
 
 
+## •••••••••• create a database •••••••••••••
 ## Migrate to postgres
-1. create a database on Dbeaver
+1. create a database on DBeaver
 2. keep the username, password, and hostname the handy
-3. in the seeting.py change the default database to postgres it should look lis this
+3. in the seeting.py change the default database to postgres, it should look lis this
 ` DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -83,7 +84,7 @@ https://www.postgresql.org/download/linux/ubuntu/
 `pip install psycopg2-binary`
 5. run the migrate command
 `python manage.py migrate`
-6. make sure your Django app interact with the database
+6. make sure your Django app interact with the database by looking at the database
 
 ## Make Migration
 1. make your models/schema in you models files in each app, e.g (listings/models.py, realtors/models.py)
@@ -96,4 +97,5 @@ https://www.postgresql.org/download/linux/ubuntu/
     c. you can see the schema in the file
     d. (Optional), run the command below to see the sql code
     `python manage.py sqlmigrate listings 0001`
-
+4. to add the new schema/table/models  to the database run the command
+`python manage.py migrate`
