@@ -109,3 +109,38 @@ https://www.postgresql.org/download/linux/ubuntu/
 4. enter the username, email, and password
 5. you will be asked to confirm the password
 6. enter the password again
+
+
+
+## •••••••••• Load data from DB to html templates •••••••••••••
+1. in app/views.py import your models from .models
+2. create a variable with value as Listing.objects.all()  // to fetch all data from that table
+3. in the return render(request, 'listings/listings.html', {'listings': listings}) or something like this
+    `
+    def index(request):
+        listings = Listing.objects.order_by('-list_date').filter(is_published=True)[:3]
+        context = {
+            'listings': listings
+        }
+        return render(request,'templates/listings/listings.html', context)
+        `
+3. in the html template, use the variable to display the data
+4. use Jinga syntax to display the data like
+
+`{{%if listings%}}
+{% for listing in listings %}
+    <h2>{{ listing.title }}</h2>
+    <h3>{{ listing.price }}</h3>
+    <p>{{ listing.description }}</p>
+{% endfor %}
+{{% else %}}
+    <h2>No Listings Found</h2>
+{{% endif %}}`
+
+5. (optional) you can use humanize for better human reading
+   a. register the humanize package in the settings.py
+    b. mark the template with {% load humanize %}
+    c. use the function like
+    `{{listing.list_date|date:"d M Y"}}`
+    `<h3>{{ listing.price | intcomma }}</h3>`
+    `{{listing.list_date|date:"F j, Y"}}`
