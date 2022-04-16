@@ -16,6 +16,8 @@
 `pip uninstall -y -r <(pip freeze)`
 ## collect static
 `python manage.py collectstatic`
+## collect all teh installed packages
+`pip freeze > requirements.txt`
 
 
 
