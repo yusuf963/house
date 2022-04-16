@@ -4,13 +4,13 @@ from django.shortcuts import (render, redirect)
 def register(request):
     if request.method == 'POST':
         return redirect('register')
-    return render(request, 'templates/accounts/register.html')
+    return render(request, 'accounts/register.html')
 
 
 def login(request):
     if request.method == 'POST':
         return redirect('register')
-    return render(request, 'templates/accounts/login.html')
+    return render(request, 'accounts/login.html')
 
 
 def logout(request):
@@ -18,4 +18,4 @@ def logout(request):
 
 
 def dashboard(request):
-    return render(request, 'templates/accounts/dashboard.html')
+    return render(request, 'accounts/dashboard.html')
