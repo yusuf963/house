@@ -35,12 +35,14 @@
     </div>
 </section>
 
+
 <!-- Alerts -->
+{% include 'partials/_alerts.html' %}
 
 <!-- Listing -->
 <section id="listing" class="py-4">
     <div class="container">
-        <a href="" class="btn btn-light mb-4">Back To Listings</a>
+        <a href="{% url 'listings' %}" class="btn btn-light mb-4">Back To Listings</a>
         <div class="row">
             <div class="col-md-9">
                 <!-- Home Main Image -->
@@ -172,7 +174,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="" method="POST">
+                <form action="{% url 'contact' %}" method="POST">
                     {% csrf_token %}
                     {% if user.is_authenticated %}
                     <input type="hidden" name="user_id" value="{{ user.id }}">
