@@ -152,3 +152,16 @@ https://www.postgresql.org/download/linux/ubuntu/
 ## •••••••••• Dealing with Environment variable •••••••••••••
 
 https://alicecampkin.medium.com/how-to-set-up-environment-variables-in-django-f3c4db78c55f
+
+
+## •••••••••• Deployments •••••••••••••
+## Officail Deployment docs on aws Elasticbeanstalk
+https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create-deploy-python-django.html
+
+##Prerequisites
+1. Python 3.7 or later
+2. pip
+3. virtualenv
+4. awsebcli , in your terminal type `pip install awsebcli` to install awsebcli/make sure this in not in the virtual environment
+
+- get your credentials from aws
