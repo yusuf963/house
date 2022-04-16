@@ -82,9 +82,11 @@ https://www.postgresql.org/download/linux/ubuntu/
 4. install packages to help you communicate with the database
 `pip install psycopg2`
 `pip install psycopg2-binary`
-5. run the migrate command
+5. run the command below to make a migration
+`python manage.py makemigrations`
+6. run the migrate command
 `python manage.py migrate`
-6. make sure your Django app interact with the database by looking at the database
+7. make sure your Django app interact with the database by looking at the database
 
 ## Make Migration
 1. make your models/schema in you models files in each app, e.g (listings/models.py, realtors/models.py)
@@ -144,3 +146,7 @@ https://www.postgresql.org/download/linux/ubuntu/
     `{{listing.list_date|date:"d M Y"}}`
     `<h3>{{ listing.price | intcomma }}</h3>`
     `{{listing.list_date|date:"F j, Y"}}`
+
+## •••••••••• Dealing with Environment variable •••••••••••••
+
+https://alicecampkin.medium.com/how-to-set-up-environment-variables-in-django-f3c4db78c55f
