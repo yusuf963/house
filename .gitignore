@@ -133,6 +133,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+photos/2022/04/15
 
 # Spyder project settings
 .spyderproject
@@ -166,3 +167,8 @@ cython_debug/
 #.idea/
 
 # End of https://www.toptal.com/developers/gitignore/api/django
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
