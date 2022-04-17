@@ -26,7 +26,7 @@ SECRET_KEY = 'fr4+g5l#y&z0pn1-%rfe^+zs_*=ziz*0ec0x#!clk$*u9m0e79'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://sleepy-earth-90185.herokuapp.com/','127.0.0.1']
+ALLOWED_HOSTS = ['sleepy-earth-90185.herokuapp.com','127.0.0.1']
 
 
 # Application definition
