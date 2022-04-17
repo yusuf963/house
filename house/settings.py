@@ -80,17 +80,29 @@ WSGI_APPLICATION = 'house.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
+
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'house',
+#         'USER': 'postgres',
+#         'PASSWORD': 'Password@123',
+#         'HOST': 'localhost',
+#     }
+# }
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'house',
-        'USER': 'postgres',
-        'PASSWORD': 'Password@123',
-        'HOST': 'localhost',
+        'NAME': 'ddnn65n068vke2',
+        'USER': 'qmrosqrsptjbex',
+        'PASSWORD': 'f6646fc3a457a00aafc811bdc7c6b6b8417da93bf1dcd6a1a7323974aae0c73b',
+        'HOST': 'ec2-52-203-118-49.compute-1.amazonaws.com',
+        'PORT': '5432',
     }
 }
-
-
+#postgres://qmrosqrsptjbex:f6646fc3a457a00aafc811bdc7c6b6b8417da93bf1dcd6a1a7323974aae0c73b@ec2-52-203-118-49.compute-1.amazonaws.com:5432/ddnn65n068vke2
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
 
