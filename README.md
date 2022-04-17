@@ -153,6 +153,7 @@ https://www.postgresql.org/download/linux/ubuntu/
     `<h3>{{ listing.price | intcomma }}</h3>`
     `{{listing.list_date|date:"F j, Y"}}`
 
+https://github.com/jazzband/dj-database-url
 ## •••••••••• Dealing with Environment variable •••••••••••••
 
 https://alicecampkin.medium.com/how-to-set-up-environment-variables-in-django-f3c4db78c55f
@@ -169,3 +170,81 @@ https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create-deploy-python-djan
 4. awsebcli , in your terminal type `pip install awsebcli` to install awsebcli/make sure this in not in the virtual environment
 
 - get your credentials from aws
+
+
+## •••••••••• Deployments to Heroku •••••••••••••
+
+4. install gunicorn
+`pip install gunicorn`
+5. add this line to your project/urls.py
+`from django.contrib.staticfiles.urls import staticfiles_urlpatterns`
+`urlpatterns += staticfiles_urlpatterns()` # this is to make the static files available in the heroku
+5. in the root directory of your project, create Procfile 
+`touch Procfile`
+5. add the folowing to it 
+`web: gunicorn myappname.wsgi`
+6. in the root directory create file runtime.txt
+`touch runtime.txt`
+7. specify the version of python you like during runtime as Heroku by default will install 3.10.0 
+`python-3.8.9` # its very case sensitive, careful
+8. in you venv run the command 
+`pip freeze > requirements.txt`
+
+1. create Heroku account
+
+2. install heroku cli
+`pip install heroku`
+https://devcenter.heroku.com/articles/heroku-cli
+3. connect to heroku
+`heroku login` # you will be asked for your username and password
+.  check if you are connected to heroku
+`heroku auth:whoami`
+`heroku auth:token`
+`heroku authorizations`
+`heroku authorizations:info 059ed27c-d04a-4349-9dba-83a0169277ae`
+`heroku apps`
+`heroku maintenance:on` # to put the app in maintenance mode
+`heroku run python manage.py createsuperuser` # to create a superuser
+. after a success login, you will see the following
+`heroku create` # this will initialize a new heroku app, you can se it in the web browser of your heroku account
+`git add .` and `git commit -m "initial commit"`
+`git push heroku master` # this will push the code to heroku or `git push heroku HEAD:master`
+. Useful heroku commands
+`heroku open` # this will open the heroku app in the browser
+`heroku logs` # this will show the logs of the heroku app
+`heroku ps` # this will show the processes of the heroku app
+`heroku ps:scale web=1` # this will scale the web process to 1
+`heroku buildpacks:clear`
+`heroku buildpacks:add --index heroku/python`
+`heroku create --region eu` # this will create a heroku app in the eu region
+`heroku plugins:install heroku-fork`
+`heroku fork --from sleepy-earth-90185 --to targetapp --region eu`
+
+## change app regin if needed
+`heroku plugins:install heroku-fork` 
+`heroku fork --from sourceapp --to targetapp --region eu`
+
+## Why am I seeing "Application Error"?
+`heroku logs --tail --app your_app_name` # this will show the logs of the heroku app
+`heroku restart` # this will restart the heroku app
+`git rm he`
+
+. add your app url to the allowd host in settings.py
+`ALLOWED_HOSTS = ['my-django-app.herokuapp.com']`
+
+https://devcenter.heroku.com/articles/python-support#specifying-a-python-version
+https://devcenter.heroku.com/articles/django-app-configuration
+
+Login to your Heroku dashboard and open your projects.
+Go to Settings.
+Delete heroku/python from the list of buildpacks
+Then click Add buildpack → Choose "Python" → Save Changes.
+Activate your environment in your code.
+Run heroku ps:scale web=1.
+And you're done!
+
+
+https://realpython.com/django-hosting-on-heroku/
+https://www.youtube.com/watch?v=lid-aICtbCI&t=576s
+https://www.youtube.com/watch?v=v7xjdXWZafY
+https://www.youtube.com/watch?v=GMbVzl_aLxM

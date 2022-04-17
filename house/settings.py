@@ -12,7 +12,9 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 from django.contrib.messages import constants as messages
 import os
-
+import environ
+env = environ.Env()
+environ.Env.read_env()
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -26,7 +28,7 @@ SECRET_KEY = 'fr4+g5l#y&z0pn1-%rfe^+zs_*=ziz*0ec0x#!clk$*u9m0e79'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['sleepy-earth-90185.herokuapp.com','127.0.0.1']
+ALLOWED_HOSTS = ['house-estat.herokuapp.com','127.0.0.1']
 
 
 # Application definition
@@ -80,29 +82,35 @@ WSGI_APPLICATION = 'house.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'house',
-#         'USER': 'postgres',
-#         'PASSWORD': 'Password@123',
-#         'HOST': 'localhost',
-#     }
-# }
-
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'ddnn65n068vke2',
-        'USER': 'qmrosqrsptjbex',
-        'PASSWORD': 'f6646fc3a457a00aafc811bdc7c6b6b8417da93bf1dcd6a1a7323974aae0c73b',
-        'HOST': 'ec2-52-203-118-49.compute-1.amazonaws.com',
-        'PORT': '5432',
-    }
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'NAME': 'house',
+    #     'USER': 'postgres',
+    #     'PASSWORD': 'Password@123',
+    #     'HOST': 'localhost',
+    # }
+#    Production ENVIRONMENT variable for Database
+  'default': {
+      'ENGINE': 'django.db.backends.postgresql',
+      'NAME': 'd6h3oudl33ioc9',
+      'USER': 'rcrczuqylupnym',
+      'PASSWORD': '94182e3b411a6a9907b3d0b062736c22d5a216e6bf1fb311a93dbbd035d4d7c0',
+      'HOST': 'ec2-52-212-228-71.eu-west-1.compute.amazonaws.com',
+      'PORT': '5432',
+   }
+# TRY WITH ENVIRONMENT VARIABLES
+#    'default': {
+#       'ENGINE': 'django.db.backends.postgresql',
+#       'NAME': env('DB_NAME'),
+#       'USER': env('DB_USER'),
+#       'PASSWORD': env('DB_PASSWORD'),
+#       'HOST': env('DB_HOST'),
+#       'PORT': '5432',
+#     }
 }
-#postgres://qmrosqrsptjbex:f6646fc3a457a00aafc811bdc7c6b6b8417da93bf1dcd6a1a7323974aae0c73b@ec2-52-203-118-49.compute-1.amazonaws.com:5432/ddnn65n068vke2
+
+
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
 
@@ -160,4 +168,5 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'mohammad963yusuf@gmail.com'
 EMAIL_HOST_PASSWORD = 'chfakwhkiqiokxbl'
+# EMAIL_HOST_PASSWORD = env('EMAIL_PASSWORD')
 EMAIL_USE_TLS = True
