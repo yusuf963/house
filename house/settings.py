@@ -83,22 +83,30 @@ WSGI_APPLICATION = 'house.wsgi.application'
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.postgresql',
-    #     'NAME': 'house',
-    #     'USER': 'postgres',
-    #     'PASSWORD': 'Password@123',
-    #     'HOST': 'localhost',
-    # }
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'house',
+        'USER': 'postgres',
+        'PASSWORD': 'Password@123',
+        'HOST': 'localhost',
+    }
 #    Production ENVIRONMENT variable for Database
-  'default': {
-      'ENGINE': 'django.db.backends.postgresql',
-      'NAME': 'd6h3oudl33ioc9',
-      'USER': 'rcrczuqylupnym',
-      'PASSWORD': '94182e3b411a6a9907b3d0b062736c22d5a216e6bf1fb311a93dbbd035d4d7c0',
-      'HOST': 'ec2-52-212-228-71.eu-west-1.compute.amazonaws.com',
-      'PORT': '5432',
-   }
+#   'default': {
+#       'ENGINE': 'django.db.backends.postgresql',
+#       'NAME': 'd29ik8u7fgfgud',
+#       'USER': 'kdovnkrvoidzev',
+#       'PASSWORD': '2c212838918fe6f9e6936f5552ad555ab4129593f187f807908dbb4d47790431',
+#       'HOST': 'ec2-63-35-156-160.eu-west-1.compute.amazonaws.com',
+#       'PORT': '5432',
+#    }
+#      'default': {
+#       'ENGINE': 'django.db.backends.postgresql',
+#       'NAME': 'rcrczuqylupnym',
+#       'USER': 'd6h3oudl33ioc9',
+#       'PASSWORD': '94182e3b411a6a9907b3d0b062736c22d5a216e6bf1fb311a93dbbd035d4d7c0',
+#       'HOST': 'ec2-52-212-228-71.eu-west-1.compute.amazonaws.com',
+#       'PORT': '5432',
+#    }
 # TRY WITH ENVIRONMENT VARIABLES
 #    'default': {
 #       'ENGINE': 'django.db.backends.postgresql',
