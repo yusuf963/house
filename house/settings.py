@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 from django.contrib.messages import constants as messages
 import os
 import environ
+from decouple import config
 env = environ.Env()
 environ.Env.read_env()
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -23,12 +24,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'fr4+g5l#y&z0pn1-%rfe^+zs_*=ziz*0ec0x#!clk$*u9m0e79'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['house-estat.herokuapp.com','127.0.0.1']
+ALLOWED_HOSTS = ['house-estat.herokuapp.com','127.0.0.1', 'localhost', '0.0.0.0', '127.0.0.1']
 
 
 # Application definition
@@ -46,6 +47,8 @@ INSTALLED_APPS = [
     'listings',
     'accounts',
     'contacts',
+    'storages',
+
 ]
 
 MIDDLEWARE = [
@@ -90,32 +93,14 @@ DATABASES = {
     #     'PASSWORD': 'Password@123',
     #     'HOST': 'localhost',
     # }
-#    Production ENVIRONMENT variable for Database
   'default': {
       'ENGINE': 'django.db.backends.postgresql',
-      'NAME': 'ddajqltjvpuf75',
-      'USER': 'adpnxpkeuwkqci',
-      'PASSWORD': '41ed3ca101a605a5339a760e51eaf4e57a2d96696fd71483de3effab3a86dea0',
-      'HOST': 'ec2-52-18-116-67.eu-west-1.compute.amazonaws.com',
+      'NAME': config('DB_NAME'),
+      'USER': config('DB_USER'),
+      'PASSWORD': config('DB_PASSWORD'),
+      'HOST': config('DB_HOST'),
       'PORT': '5432',
    }
-#      'default': {
-#       'ENGINE': 'django.db.backends.postgresql',
-#       'NAME': 'rcrczuqylupnym',
-#       'USER': 'd6h3oudl33ioc9',
-#       'PASSWORD': '94182e3b411a6a9907b3d0b062736c22d5a216e6bf1fb311a93dbbd035d4d7c0',
-#       'HOST': 'ec2-52-212-228-71.eu-west-1.compute.amazonaws.com',
-#       'PORT': '5432',
-#    }
-# TRY WITH ENVIRONMENT VARIABLES
-#    'default': {
-#       'ENGINE': 'django.db.backends.postgresql',
-#       'NAME': env('DB_NAME'),
-#       'USER': env('DB_USER'),
-#       'PASSWORD': env('DB_PASSWORD'),
-#       'HOST': env('DB_HOST'),
-#       'PORT': '5432',
-#     }
 }
 
 
@@ -157,13 +142,28 @@ USE_TZ = True
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
+
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'house/static')
 ]
+AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME')
+
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = None
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# this line is for css and js files to be stored in the bucket and not in the static folder but lets keep it for now ro read from the static folder in the project directory
+# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3StaticStorage'
+
 
 # Media folder settings
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = '/media/'
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# MEDIA_URL = '/media/'
+# MEDIA_URL = '/img/'
+
+
+
 
 # Messages
 MESSAGE_TAGS = {
@@ -176,5 +176,4 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'mohammad963yusuf@gmail.com'
 EMAIL_HOST_PASSWORD = 'chfakwhkiqiokxbl'
-# EMAIL_HOST_PASSWORD = env('EMAIL_PASSWORD')
 EMAIL_USE_TLS = True

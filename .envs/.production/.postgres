@@ -1,0 +1,7 @@
+# PostgreSQL
+# ------------------------------------------------------------------------------
+POSTGRES_HOST=postgres
+POSTGRES_PORT=5432
+POSTGRES_DB=template_docker_for_django
+POSTGRES_USER=zriKlQhQbzkpyvjwkuqyESOrrVYMUfWm
+POSTGRES_PASSWORD=TZyo5nL3aifUFXV45J6so8zaQKojOvo4jeC4NtDQocOKwXO3bFO9jsdS75RCd6Im
