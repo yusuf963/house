@@ -219,6 +219,7 @@ https://devcenter.heroku.com/articles/heroku-cli
 `heroku create --region eu` # this will create a heroku app in the eu region
 `heroku plugins:install heroku-fork`
 `heroku fork --from sleepy-earth-90185 --to targetapp --region eu`
+`heroku config:set DISABLE_COLLECTSTATIC=1` # to disable collectstatic
 
 ## change app regin if needed
 `heroku plugins:install heroku-fork` 
