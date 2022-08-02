@@ -85,9 +85,9 @@ WSGI_APPLICATION = 'house.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'house',
+        'NAME': 'postgres',
         'USER': 'postgres',
-        'PASSWORD': 'Password@123',
+        'PASSWORD': 'admin',
         'HOST': 'localhost',
     }
 }
@@ -145,9 +145,9 @@ MESSAGE_TAGS = {
 }
 
 # Email config
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_HOST_USER = 'mohammad963yusuf@gmail.com'
-EMAIL_HOST_PASSWORD = env('EMAIL_PASSWORD')
-EMAIL_USE_TLS = True
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_PORT = 587
+# EMAIL_HOST_USER = 'mohammad963yusuf@gmail.com'
+# EMAIL_HOST_PASSWORD = env('EMAIL_PASSWORD')
+# EMAIL_USE_TLS = True
